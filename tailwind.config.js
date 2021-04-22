@@ -8,6 +8,7 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       black: colors.black,
+      blue: colors.blue,
       white: colors.white,
       gray: colors.trueGray,
       indigo: colors.indigo,
@@ -15,14 +16,21 @@ module.exports = {
       yellow: colors.amber,
       green: colors.green,
       black: {
-        bg: "#0f1218",
+        bg: "#0e1116",
         nav: "#161c23",
         button: "#21272c",
+      },
+      extend: {
+        margin: {
+          "-4.5": "1.125rem",
+        },
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringOpacity: ["hover", "active"],
+    },
   },
   plugins: [],
 };

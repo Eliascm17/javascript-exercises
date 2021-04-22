@@ -13,11 +13,14 @@ function Avatar({ src, alt = "", size = "md" }) {
 const ProfileDropdown = ({ onClick }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <div className="mb-1">
       <span>
         <button className="flex" onClick={onClick}>
           <Avatar src="/me.jpg" size="sm" />
-          <Icon name="downArrow" className="w-3 h-3 ml-0.5 mt-1.5" />
+          <Icon
+            name="downArrow"
+            className="w-3 h-3 ml-0.5 mt-1.5 stroke-current text-white"
+          />
         </button>
       </span>
       {open && (
