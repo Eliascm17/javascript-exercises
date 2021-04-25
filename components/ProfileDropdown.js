@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import Icon from "./Icon";
 
 function Avatar({ src, alt = "", size = "md" }) {
@@ -10,12 +11,12 @@ function Avatar({ src, alt = "", size = "md" }) {
   return <img className={`${sizeClasses} rounded-full`} src={src} alt={alt} />;
 }
 
-const ProfileDropdown = ({ onClick }) => {
+const ProfileDropdown = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="mb-1">
       <span>
-        <button className="flex" onClick={onClick}>
+        <button className="flex" onClick={() => setOpen(!open)}>
           <Avatar src="/me.jpg" size="sm" />
           <Icon
             name="downArrow"
@@ -24,8 +25,32 @@ const ProfileDropdown = ({ onClick }) => {
         </button>
       </span>
       {open && (
-        <div className="absolute w-60 max-w-xs rounded-md bg-white divide-y divide-gray-200 shadow-lg overflow-hidden mt-6">
-          akjldsfalksjdhf
+        <div className="flex flex-col absolute mt-1 right-16 w-30 max-w-xs rounded-md bg-gray-600 shadow-lg overflow-hidden">
+          <Link href="#">
+            <a className="inline-block text-xs px-2 py-1 leading-5 text-gray-100 bg-gray-700 hover:bg-blue-600 transition ease-in-out duration-300">
+              New repository
+            </a>
+          </Link>
+          <Link href="#">
+            <a className="inline-block text-xs px-2 py-1 leading-5 text-gray-100 bg-gray-700 hover:bg-blue-600 transition ease-in-out duration-300">
+              Import repository
+            </a>
+          </Link>
+          <Link href="#">
+            <a className="inline-block text-xs px-2 py-1 leading-5 text-gray-100 bg-gray-700 hover:bg-blue-600 transition ease-in-out duration-300">
+              New gist
+            </a>
+          </Link>
+          <Link href="#">
+            <a className="inline-block text-xs px-2 py-1 leading-5 text-gray-100 bg-gray-700 hover:bg-blue-600 transition ease-in-out duration-300">
+              New organization
+            </a>
+          </Link>
+          <Link href="#">
+            <a className="inline-block text-xs px-2 py-1 leading-5 text-gray-100 bg-gray-700 hover:bg-blue-600 transition ease-in-out duration-300">
+              New project
+            </a>
+          </Link>
         </div>
       )}
     </div>

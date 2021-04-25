@@ -8,11 +8,16 @@ const AddDropDown = () => {
     <div>
       <span>
         <button className="flex" onClick={() => setOpen(!open)} type="button">
-          <Icon name="plus" className="w-4 h-4 stroke-current text-white" />
-          <Icon
-            name="downArrow"
-            className="w-3 h-3 mt-0.5 stroke-current text-white"
-          />
+          <div className="flex fill-current hover:text-blue-600 transition ease-in-out duration-300">
+            <Icon
+              name="plus"
+              className="w-4 h-4 stroke-current text-white hover:text-blue-600 transition ease-in-out duration-300"
+            />
+            <Icon
+              name="downArrow"
+              className="w-3 h-3 mt-0.5 stroke-current text-white hover:text-blue-600 transition ease-in-out duration-300"
+            />
+          </div>
         </button>
       </span>
       {open && (

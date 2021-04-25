@@ -24,7 +24,8 @@ export default function Home() {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           name="searchInput"
-          className="max-w-2xl w-full focus:ring-2 text-white text-xs bg-black-bg border-2 border-gray-700 focus:border-blue-400 focus:ring-blue-800 rounded-md py-0.5 pl-2"
+          autoComplete="off"
+          className="max-w-2xl w-full text-white text-xs bg-black-bg focus:bg-black-bg border border-gray-700 focus:outline-none focus:border-blue-searchBorder focus:ring focus:ring-blue-searchRing rounded-md py-0.5 pl-2"
           placeholder="Search GitHub"
           onKeyPress={(e) => {
             if (e.keyCode === 13 && searchInput.length > 0) {
