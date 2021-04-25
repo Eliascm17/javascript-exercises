@@ -20,6 +20,8 @@ module.exports = {
         red: {
           salmon: "#f88166",
         },
+        commitButton: "#21272c",
+        verified: "#14221e",
         ABAP: "#E8274B",
         ActionScript: "#882B0F",
         Ada: "#02f88c",
@@ -200,6 +202,7 @@ module.exports = {
   variants: {
     extend: {
       ringOpacity: ["hover", "active"],
+      ringColor: ["hover", "active"],
     },
   },
   plugins: [],

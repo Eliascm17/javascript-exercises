@@ -114,8 +114,38 @@ const Icon = ({ name, className }) => {
           ></path>
         </svg>
       );
+    case "check":
+      return (
+        <svg className={className} viewBox="0 0 16 16">
+          <path
+            fill-rule="evenodd"
+            d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+          ></path>
+        </svg>
+      );
+
+    case "copy":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="#21272c">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+          ></path>
+        </svg>
+      );
+
+    case "carrots":
+      return (
+        <svg fill="#21272c" viewBox="0 0 16 16" className={className}>
+          <path
+            fill-rule="evenodd"
+            d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"
+          ></path>
+        </svg>
+      );
   }
 };
-// style = "color: #6a737d";
 
 export default Icon;

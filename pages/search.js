@@ -1,12 +1,14 @@
 import { useState } from "react";
+import Commits from "../components/Commits";
 import Container from "../components/Container";
+import Icon from "../components/Icon";
 import Repository from "../components/Repository";
 import Users from "../components/Users";
-import { searchRepos, searchUsers } from "../lib/githubHelpers";
+import { searchRepos, searchUsers, searchCommits } from "../lib/githubHelpers";
 
-const search = ({ repos, users }) => {
-  console.log(users[0]);
-  const [type, setType] = useState("users");
+const search = ({ repos, users, commits }) => {
+  console.log(commits[0]);
+  const [type, setType] = useState("commits");
 
   return (
     <Container>
@@ -33,24 +35,8 @@ const search = ({ repos, users }) => {
             </button>
           </>
           <>
-            {type === "code" && (
-              <div className="absolute h-10 w-0.5 mt-10 bg-red-salmon rounded-sm" />
-            )}
-            <button
-              onClick={() => setType("code")}
-              className={`flex space-x-16 justify-between items-center h-10 w-26 px-4 py-2 outline-none focus:outline-none focus:ring-opacity-0 border border-gray-700 hover:bg-black-nav ${
-                type === "code" ? "bg-black-nav" : "bg-black-bg"
-              }`}
-            >
-              <div className="text-sm text-gray-300">Code</div>
-              <div className="text-sm text-gray-300 bg-gray-500 h-5 w-7 rounded-full">
-                35
-              </div>
-            </button>
-          </>
-          <>
             {type === "commits" && (
-              <div className="absolute h-10 w-0.5 mt-20 bg-red-salmon rounded-sm" />
+              <div className="absolute h-10 w-0.5 mt-10 bg-red-salmon rounded-sm" />
             )}
             <button
               onClick={() => setType("commits")}
@@ -59,14 +45,18 @@ const search = ({ repos, users }) => {
               }`}
             >
               <div className="text-sm text-gray-300">Commits</div>
-              <div className="text-sm text-gray-300 bg-gray-500 h-5 w-7 rounded-full">
-                79
+              <div
+                className={`text-sm text-gray-300 bg-gray-500 h-5 rounded-full ${
+                  commits.length > 9 ? "w-7" : "w-5"
+                } `}
+              >
+                {commits.length}
               </div>
             </button>
           </>
           <>
             {type === "users" && (
-              <div className="absolute h-10 w-0.5 mt-30 bg-red-salmon rounded-sm" />
+              <div className="absolute h-10 w-0.5 mt-20 bg-red-salmon rounded-sm" />
             )}
             <button
               onClick={() => setType("users")}
@@ -88,7 +78,7 @@ const search = ({ repos, users }) => {
         <div className="h-70 w-full bg-black-bg text-gray-300">
           {type === "repositories" && <Repository repos={repos} />}
           {type === "code" && <div></div>}
-          {type === "commits" && <div></div>}
+          {type === "commits" && <Commits commits={commits} />}
           {type === "users" && <Users users={users} />}
         </div>
       </div>
@@ -101,16 +91,16 @@ export const getServerSideProps = async (ctx) => {
 
   const reposRes = await searchRepos(query);
   const usersRes = await searchUsers(query);
+  const commitsRes = await searchCommits(query);
 
   // const codeRes = await searchCode(query);
-  // const commitsRes = await searchCommits(query);
 
   return {
     props: {
       repos: reposRes.data.items,
-      users: usersRes,
       // code: codeRes.data.items,
-      // commits: commitsRes.data.items,
+      commits: commitsRes.data.items,
+      users: usersRes,
     },
   };
 };
