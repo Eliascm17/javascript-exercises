@@ -53,7 +53,10 @@ const Repository = ({ repos }) => {
               />
               <div className="flex flex-col ml-2">
                 <div>
-                  <a className="text-lg text-blue-400 hover:underline" href="#">
+                  <a
+                    className="text-lg text-blue-400 hover:underline"
+                    href={repo.html_url}
+                  >
                     {repo.full_name}
                   </a>
                 </div>
@@ -79,10 +82,10 @@ const Repository = ({ repos }) => {
                   {repo.language && (
                     <div className="flex items-center space-x-1">
                       <div
-                        className={`h-3 w-3 rounded-full bg-${
+                        className={`h-3 w-3 rounded-full ${
                           languageColors[repo.language]
-                            ? `${repo.language}`
-                            : "green-500"
+                            ? `bg-${repo.language}`
+                            : "bg-green-500"
                         } border border-black-bg`}
                       />
                       <div className="text-xs text-gray-400">

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Commits from "../components/Commits";
 import Container from "../components/Container";
-import Icon from "../components/Icon";
 import Repository from "../components/Repository";
 import Users from "../components/Users";
-import { searchRepos, searchUsers, searchCommits } from "../lib/githubHelpers";
+import { searchCommits, searchRepos, searchUsers } from "../lib/githubHelpers";
 
 const search = ({ repos, users, commits }) => {
   const [type, setType] = useState("repositories");
