@@ -27,8 +27,8 @@ export default function Home() {
           autoComplete="off"
           className="max-w-2xl w-full text-white text-xs bg-black-bg focus:bg-black-bg border border-gray-700 focus:outline-none focus:border-blue-searchBorder focus:ring focus:ring-blue-searchRing rounded-md py-0.5 pl-2"
           placeholder="Search GitHub"
-          onKeyPress={(e) => {
-            if (e.keyCode === 13 && searchInput.length > 0) {
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
               onSearch();
             }
           }}

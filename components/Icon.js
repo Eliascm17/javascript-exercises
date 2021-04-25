@@ -53,8 +53,8 @@ const Icon = ({ name, className }) => {
       return (
         <svg
           className={className}
-          fill="white"
           viewBox="0 0 24 24"
+          fill="#161c23"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

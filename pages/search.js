@@ -7,8 +7,7 @@ import Users from "../components/Users";
 import { searchRepos, searchUsers, searchCommits } from "../lib/githubHelpers";
 
 const search = ({ repos, users, commits }) => {
-  console.log(commits[0]);
-  const [type, setType] = useState("commits");
+  const [type, setType] = useState("repositories");
 
   return (
     <Container>
