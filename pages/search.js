@@ -10,7 +10,7 @@ const search = ({ repos, users, commits }) => {
 
   return (
     <Container>
-      <div className="flex flex-start max-w-4xl w-full space-x-6 mt-4 items-start py-2">
+      <div className="flex flex-col md:flex-row max-w-4xl w-full md:space-x-6 mt-4 py-2">
         <div className="flex flex-col w-72">
           <>
             {type === "repositories" && (
@@ -73,7 +73,7 @@ const search = ({ repos, users, commits }) => {
             </button>
           </>
         </div>
-        <div className="h-70 w-full bg-black-bg text-gray-300">
+        <div className="flex flex-col w-full mx-auto mt-4 md:mt-0 text-white">
           {type === "repositories" && <Repository repos={repos} />}
           {type === "code" && <div></div>}
           {type === "commits" && <Commits commits={commits} />}

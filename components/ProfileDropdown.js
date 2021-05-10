@@ -16,7 +16,10 @@ const ProfileDropdown = () => {
   return (
     <div className="mb-1">
       <span>
-        <button className="flex" onClick={() => setOpen(!open)}>
+        <button
+          className="flex focus:outline-none"
+          onClick={() => setOpen(!open)}
+        >
           <Avatar src="/me.jpg" size="sm" />
           <Icon
             name="downArrow"
@@ -25,7 +28,7 @@ const ProfileDropdown = () => {
         </button>
       </span>
       {open && (
-        <div className="flex flex-col absolute mt-2 border border-gray-800 right-6 w-30 max-w-xs rounded-md bg-black-nav shadow-lg overflow-hidden">
+        <div className="absolute flex flex-col mt-2 -mr-6 border border-gray-800 right-6 max-w-xs rounded-md bg-black-nav shadow-lg overflow-hidden w-40">
           <div className="text-sm text-gray-200 inline-block px-4 py-1">
             Signed in as
           </div>

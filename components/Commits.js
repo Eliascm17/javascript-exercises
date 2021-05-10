@@ -50,13 +50,13 @@ const Commits = ({ commits }) => {
                 >
                   <div className="flex flex-col">
                     <a href={commit.repository.html_url}>
-                      <div className="text-xs text-gray-500 hover:text-blue-500 hover:underline">
+                      <div className="text-xs text-gray-500 hover:text-blue-400 hover:underline">
                         {commit.repository.full_name}
                       </div>
                     </a>
                     {commit.commit.message && (
                       <a href={commit.url}>
-                        <div className="text-md text-blue-500 hover:underline">
+                        <div className="text-md text-blue-400 hover:underline">
                           {commit.commit.message.substring(0, 50)}
                         </div>
                       </a>
@@ -82,13 +82,13 @@ const Commits = ({ commits }) => {
                         />
                       </div>
                       {commit.commit.comment_count > 0 && (
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-500 flex flex-wrap">
                           {commit.commit.comment_count} comment
                         </div>
                       )}
                     </div>
                   </div>
-                  <div className="flex items-start space-x-2">
+                  <div className="hidden md:flex items-start space-x-2">
                     <div className="bg-verified border border-green-600 rounded-full text-xs text-green-600 px-1 hover:border-green-400 mt-1">
                       Verified
                     </div>
