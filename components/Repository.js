@@ -28,7 +28,9 @@ const months = {
 const Repository = ({ repos }) => {
   return (
     <div>
-      <h1 className="text-xl font-bold">{repos.length} repository result</h1>
+      <h1 className="text-xl font-bold flex-wrap">
+        {repos.length} repository result
+      </h1>
       {repos.map((repo, _) => {
         const updatedAt = new Date(repo.updated_at);
         const monthUpdated = updatedAt.getMonth();
@@ -42,7 +44,7 @@ const Repository = ({ repos }) => {
 
         return (
           <>
-            <div className="max-w-4xl w-full h-px bg-gray-800 mt-2" />
+            <div className="max-w-4xl w-full h-px bg-gray-800 my-2" />
             <div
               key={repo.id}
               className="flex items-start h-50 w-full text-lg text-white mt-3"
@@ -51,23 +53,23 @@ const Repository = ({ repos }) => {
                 name="repository"
                 className="w-5 h-5 fill-current text-gray-600 mt-2"
               />
-              <div className="flex flex-col ml-2">
+              <div className="flex flex-col ml-2 flex-wrap w-5/6">
                 <div>
                   <a
-                    className="text-lg text-blue-400 hover:underline"
+                    className="flex flex-wrap text-lg text-blue-400 hover:underline"
                     href={repo.html_url}
                   >
                     {repo.full_name}
                   </a>
                 </div>
                 {repo.description && (
-                  <div className="text-xs">
+                  <div className="text-xs flex-wrap">
                     {repo.description.length > 100
                       ? repo.description.substring(0, 100) + "..."
                       : repo.description}
                   </div>
                 )}
-                <div className="flex items-center space-x-4 mt-2">
+                <div className="hidden md:flex items-center space-x-4 mt-2">
                   {repo.stargazers_count > 0 && (
                     <div className="flex">
                       <a
